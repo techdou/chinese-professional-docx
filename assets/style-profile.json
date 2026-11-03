@@ -1,0 +1,123 @@
+{
+  "id": "generic-academic-v1.3",
+  "template_version": "1.3",
+  "official_template": false,
+  "body_style_keys": [
+    "Normal",
+    "正文",
+    "Body Text",
+    "Body Text 2",
+    "Body Text 3",
+    "BodyText",
+    "BodyText2",
+    "BodyText3",
+    "紧凑正文",
+    "正式正文（首行缩进）"
+  ],
+  "special_style_keys": [
+    "Title",
+    "Subtitle",
+    "Caption",
+    "Header",
+    "Footer",
+    "List Paragraph",
+    "ListParagraph",
+    "Quote",
+    "Intense Quote",
+    "Bibliography",
+    "Footnote Text",
+    "Endnote Text",
+    "文档信息",
+    "重点提示",
+    "任务与练习",
+    "题注补充说明",
+    "表格正文",
+    "代码段",
+    "参考资料",
+    "图片占位"
+  ],
+  "page": {
+    "size_twips": [
+      11906,
+      16838
+    ],
+    "margins_twips": {
+      "top": 1417,
+      "bottom": 1417,
+      "left": 1417,
+      "right": 1417
+    }
+  },
+  "normal": {
+    "east_asia_font": "宋体",
+    "latin_font": "Times New Roman",
+    "size_half_points": 24,
+    "line": 360,
+    "line_rule": "auto",
+    "alignment": "both",
+    "space_before_twips": 0,
+    "space_after_twips": 80,
+    "first_line_chars": 200
+  },
+  "headings": {
+    "Heading1": {
+      "size_half_points": 31
+    },
+    "Heading2": {
+      "size_half_points": 27
+    },
+    "Heading3": {
+      "size_half_points": 24
+    },
+    "numbering": {
+      "mode": "auto",
+      "default_document_type": "general",
+      "profiles": {
+        "general": "chinese-formal",
+        "formal-report": "chinese-formal",
+        "teaching": "chinese-formal",
+        "project-report": "chinese-formal",
+        "research-report": "academic-decimal",
+        "technical-report": "academic-decimal",
+        "thesis-natural": "academic-decimal",
+        "thesis-chapter": "academic-chapter",
+        "thesis-humanities": "humanities"
+      },
+      "note": "Existing DOCX untouched unless explicit format-headings; manual numbering never silently removed."
+    }
+  },
+  "policy": {
+    "first_line_indent_characters": 2,
+    "manual_padding": false,
+    "fixed_thesis_structure": false,
+    "force_chapter_pagebreaks": false,
+    "header": "empty",
+    "page_numbers": "arabic-centred"
+  },
+  "appearance": {
+    "paper": "FFFFFF",
+    "text": "000000",
+    "accent": "none",
+    "code": {
+      "fill": "F5F5F5",
+      "text": "000000",
+      "border": "none",
+      "font_latin": "Courier New",
+      "font_east_asia": "宋体",
+      "preserve_whitespace": true
+    },
+    "table": {
+      "default": "three-line",
+      "top_bottom_width_pt": 1.5,
+      "header_rule_width_pt": 1.0,
+      "line_color": "000000",
+      "vertical_rules": false,
+      "header_fill": "FFFFFF",
+      "variants": [
+        "three-line",
+        "grid",
+        "none"
+      ]
+    }
+  }
+}

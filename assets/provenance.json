@@ -1,0 +1,89 @@
+{
+  "source": "中文通用专业文档 Word 母版 v1.1",
+  "source_archive_sha256": "68a79e857372016af052fefca038ae7f8a51fece01cb15c33f4dbb1b437b0ec7",
+  "template_version": "1.3",
+  "packaged_on": "2026-10-13",
+  "assets": [
+    {
+      "source_member": "中文通用专业文档_Word母版_2026_v1.1_正文首行缩进2字符/01_通用母版/中文通用专业文档_即用版.docx",
+      "packaged_path": "assets/templates/base.docx",
+      "source_sha256": "f3be170a474930acc4d5b5ea380f762f18b05c808ed1041db62626a7002d901d",
+      "packaged_sha256": "6db1e368f50d5ea531a6f47c12153f65c154df774a2b45eda47089ddfcfd5aac",
+      "changes": [
+        "BodyText3: firstLine fallback adjusted to 320 twips; firstLineChars remains 200",
+        "紧凑正文: firstLine fallback adjusted to 420 twips; firstLineChars remains 200",
+        "v1.4.0: neutral black-and-white styling and academic code/table format",
+        "v1.5.0: native Word heading-number profiles and neutral 1.5pt/1pt academic tables; original fonts unaffected"
+      ],
+      "previous_packaged_sha256": "454106e03096fea19124dee5fa1f66930cc8e6f46849cdde4d6842d436fa34b7"
+    },
+    {
+      "source_member": "中文通用专业文档_Word母版_2026_v1.1_正文首行缩进2字符/01_通用母版/中文通用专业文档_可复用母版.dotx",
+      "packaged_path": "assets/templates/base.dotx",
+      "source_sha256": "a945c0433e6c3bec3b135eb7ce44d539abe4cc9d6f32b2f093c823d646e7d7b1",
+      "packaged_sha256": "7f1a976fceea1825c1c1b31165b4c7520a72eac1062a5414e8aaf9188d8af47b",
+      "changes": [
+        "BodyText3: firstLine fallback adjusted to 320 twips; firstLineChars remains 200",
+        "紧凑正文: firstLine fallback adjusted to 420 twips; firstLineChars remains 200",
+        "v1.4.0: neutral black-and-white styling and academic code/table format",
+        "v1.5.0: native Word heading-number profiles and neutral 1.5pt/1pt academic tables; original fonts unaffected"
+      ],
+      "previous_packaged_sha256": "1db0c6ba39dfa356fb522a2acf63cba1dcec2ec5b4ca284123695bb15e647540"
+    },
+    {
+      "source_member": "中文通用专业文档_Word母版_2026_v1.1_正文首行缩进2字符/02_场景示例/排版样式与组件_示例.docx",
+      "packaged_path": "assets/examples/components.docx",
+      "source_sha256": "3733c6818409df070985d39d3fb7b052fbdfb229125728ffac72202f37abbd29",
+      "packaged_sha256": "c5cd9a1505d88541e331a6d1ebd196378b91cd7d3c0e548e86efb6fc4c10fa8b",
+      "changes": [
+        "BodyText3: firstLine fallback adjusted to 320 twips; firstLineChars remains 200",
+        "紧凑正文: firstLine fallback adjusted to 420 twips; firstLineChars remains 200",
+        "v1.4.0: neutral black-and-white styling and academic code/table format",
+        "v1.5.0: native Word heading-number profiles and neutral 1.5pt/1pt academic tables; original fonts unaffected"
+      ],
+      "previous_packaged_sha256": "c54b7a680a61a4d22499d58be89de49181fa3f46bc8c1c09e039eb7b89485ad1"
+    },
+    {
+      "source_member": "中文通用专业文档_Word母版_2026_v1.1_正文首行缩进2字符/02_场景示例/竞赛项目材料_示例.docx",
+      "packaged_path": "assets/examples/competition.docx",
+      "source_sha256": "6d92b3318f28a0b1014593b7df7c4fef7b5337843f429021f03d3f7b43d73475",
+      "packaged_sha256": "4dc50b9582626e0ca010deb54e659ea0468d6976f3656ebee60c8eee3d2618cd",
+      "changes": [
+        "BodyText3: firstLine fallback adjusted to 320 twips; firstLineChars remains 200",
+        "紧凑正文: firstLine fallback adjusted to 420 twips; firstLineChars remains 200",
+        "v1.4.0: neutral black-and-white styling and academic code/table format",
+        "v1.5.0: native Word heading-number profiles and neutral 1.5pt/1pt academic tables; original fonts unaffected"
+      ],
+      "previous_packaged_sha256": "7244dff05d649aaae8b2024c552ca9004aa479e73ca7cd1b30e6a60f4cd614e6"
+    },
+    {
+      "source_member": "中文通用专业文档_Word母版_2026_v1.1_正文首行缩进2字符/02_场景示例/课程讲义_示例.docx",
+      "packaged_path": "assets/examples/handout.docx",
+      "source_sha256": "a444fc90222803103d2d60bb92893f8472a3af061de43eb7a744ac309a8b0e88",
+      "packaged_sha256": "a86ee8ab6d8e175fe9b95e9a0a0150579816272009dba8928687eb9405e5c82f",
+      "changes": [
+        "BodyText3: firstLine fallback adjusted to 320 twips; firstLineChars remains 200",
+        "紧凑正文: firstLine fallback adjusted to 420 twips; firstLineChars remains 200",
+        "v1.4.0: neutral black-and-white styling and academic code/table format",
+        "v1.5.0: native Word heading-number profiles and neutral 1.5pt/1pt academic tables; original fonts unaffected"
+      ],
+      "previous_packaged_sha256": "8fe99ee2a38d7c29a2a2ed6883f7b56d7b508a6a7bd530e428566bae843f96f3"
+    },
+    {
+      "source_member": "中文通用专业文档_Word母版_2026_v1.1_正文首行缩进2字符/02_场景示例/项目报告_示例.docx",
+      "packaged_path": "assets/examples/report.docx",
+      "source_sha256": "8774a5aac3e95ff0f6e49dbe4a17d3a51aaaeb19a2b9c92f0205278b96e95b79",
+      "packaged_sha256": "b73dc039dbef0f9b750842ade0a8678f6900438cb7aa0498ff6cd7925cbbf57a",
+      "changes": [
+        "BodyText3: firstLine fallback adjusted to 320 twips; firstLineChars remains 200",
+        "紧凑正文: firstLine fallback adjusted to 420 twips; firstLineChars remains 200",
+        "v1.4.0: neutral black-and-white styling and academic code/table format",
+        "v1.5.0: native Word heading-number profiles and neutral 1.5pt/1pt academic tables; original fonts unaffected"
+      ],
+      "previous_packaged_sha256": "11271dcdbcb9f913d60d6cdb7371d0f69ff34ad6123a68ace6d9b13dd044d13c"
+    }
+  ],
+  "upgrade_version": "1.5.0",
+  "upgrade_source_archive": "chinese-professional-docx.zip (local v1.2.1 baseline)",
+  "upgrade_note": "Native multi-level heading numbering + academic black-white code/table style based on contextual profiles; typography reference validated from publicly published graduate-thesis templates."
+}

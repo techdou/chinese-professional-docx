@@ -1,0 +1,138 @@
+{
+  "skill_name": "chinese-professional-docx",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "将附件的内容要点制作成中文课程讲义，保留每个实际段落、表格、清单和代码。交付可编辑 DOCX，普通正文首行缩进2字符，不要求论文摘要或独创性声明。",
+      "expected_output": "一份包含内容要点的DOCX及真实QA摘要；正文有效firstLineChars=200；特殊组件未被统一缩进。",
+      "files": [
+        "assets/examples/brief.json"
+      ],
+      "assertions": [
+        "内容没有被编造成真实项目成果",
+        "普通正文全部采用字符型两字符首行缩进",
+        "列表、表格和代码保持专用样式",
+        "记录实际视觉及字体检查状态"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "请检查并完善这份Word讲义，正文每段首行缩进2字符，只改有问题的缩进，不能改动文字、表格、页码、代码和题注；原文件保留。",
+      "expected_output": "审计报告；必要时产生新版本DOCX；如原文件符合要求，不虚报修复数量或不必要改写。",
+      "files": [
+        "assets/examples/handout.docx"
+      ],
+      "assertions": [
+        "先读后改并识别普通正文",
+        "修复具有幂等性且原文件不变",
+        "文字及特殊段落不变",
+        "没有把结构检测当作完成视觉验证"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "从这个通用母版创建一个长期复用的Word模板，用于竞赛说明书和项目报告。正文每段两字符缩进；不要加硕士论文声明或学校页眉。",
+      "expected_output": "真实OOXML模板内容类型的DOTX，附新建或转换验证；通用而非学位论文专用。",
+      "files": [
+        "assets/templates/base.docx"
+      ],
+      "assertions": [
+        "交付真实DOTX内容类型",
+        "保留通用标题、正文及组件样式",
+        "不加入学位论文专属内容",
+        "不把本模板说成任何院校官方模板"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "只检查附件Word排版，不改文件。指出未识别样式并说明实际检查范围。",
+      "expected_output": "只读审计，不输出修复副本；结构、角色覆盖和视觉状态分开。",
+      "files": [
+        "assets/examples/handout.docx"
+      ],
+      "assertions": [
+        "原文件SHA256不变",
+        "不得把audit退出0说成视觉通过",
+        "没有执行fix-indent"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "以下附件作为测试用指定Word模板，不代表任何学校官方模板。仅核验和修复2字符正文缩进，保留页边距和所有其他样式。",
+      "expected_output": "走指定模板/缩进限定路线，audit scope为indent，保留样式参数。",
+      "files": [
+        "assets/templates/base.docx"
+      ],
+      "assertions": [
+        "不重新生成指定模板",
+        "不把通用字号当学校规定",
+        "没有无授权字体或页边距调整"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "按内容brief生成培训Word，另外需要路演PPT；这一步只完成Word，不替我编造结果。",
+      "expected_output": "只完成Word子任务，其他文件明确分工；保留表格代码。",
+      "files": [
+        "assets/examples/brief.json"
+      ],
+      "assertions": [
+        "未把Word能力冒充PPT能力",
+        "不把示例内容当已验证成果",
+        "正文两字符缩进，特殊块独立"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "把这份Word母版作为纯模板交付，不要清除其中用于起稿的方括号提示，不要加毕业论文结构。",
+      "expected_output": "正确区分模板占位与完成稿占位，保留原生Word样式与DOTX内容类型。",
+      "files": [
+        "assets/templates/base.dotx"
+      ],
+      "assertions": [
+        "不误删有意占位内容",
+        "不强加学校封面声明",
+        "记录真正执行的验证"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "按指定学校模板排版，但我还没有上传原件；不要使用通用母版代替。",
+      "expected_output": "仅索取缺少的真实模板；不凭空创建官方版，也不要求重复已知背景。",
+      "files": [],
+      "assertions": [
+        "识别缺少输入",
+        "不假冒官方合规",
+        "没有执行new --scene"
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "请用这份已有 Word 内容生成规范的中文硕士论文式排印，不改变学校封面和正文论证。代码片段要有浅灰底纹，实验结果表格采用三线表，正文白底黑字。",
+      "expected_output": "选择该 Word 样式能力，按现有母版/学校模板约束处理代码和表格，并提供视觉 QA。",
+      "files": [
+        "assets/examples/components.docx"
+      ],
+      "assertions": [
+        "完整文档正文与代码保真",
+        "代码段灰色底纹且无蓝色侧线",
+        "三线表的上、表头、下边线明确",
+        "指定模板优先于通用风格"
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "只把这份 Word 文档的代码段增加浅灰底纹，其他正文、表格不要动；后续我会单独决定哪些表需要三线表。",
+      "expected_output": "用 format-code 只处理明确代码样式段落并输出新版本，不触发 format-tables --all。",
+      "files": [
+        "assets/examples/handout.docx"
+      ],
+      "assertions": [
+        "不基于普通段落内容猜测代码",
+        "不隐式重写不相关表格",
+        "保留代码换行缩进和正文样式"
+      ]
+    }
+  ],
+  "status": "fixtures-only-not-model-evaluated"
+}

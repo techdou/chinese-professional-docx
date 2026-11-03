@@ -1,0 +1,28 @@
+{
+  "title": "GB/T 7714—2025 引文与文后书目验证样例（虚构数据）",
+  "subtitle": "以下人名、文献题名与链接仅用于排版测试，非真实论文引用",
+  "document_type": "thesis-natural",
+  "reference_standard": "gbt7714-2025",
+  "citation_mode": "numeric-superscript",
+  "bibliography": [
+    {"id":"journalA", "type":"J", "authors":["张示例", "李示例"], "title":"遥感分类的示例研究", "container":"示例学报", "year":"2025", "volume":"12", "issue":"3", "pages":"21-30"},
+    {"id":"conferenceB", "type":"C", "authors":["王示例"], "title":"多模态融合会议论文示例", "conference":"示例国际学术会议", "conference_year":"2026", "pages":"42-47"},
+    {"id":"datasetC", "type":"DS", "authors":["数据组"], "title":"遥感影像演示数据集", "version":"V2.0", "platform":"示例数据平台", "published_date":"2026-10-01", "accessed":"2026-11-02", "url":"https://example.org/datasets/remote-sensing"},
+    {"id":"preprintD", "type":"PP", "authors":["科研组"], "title":"多标签预印本演示文献", "version":"V1", "platform":"示例预印本平台", "published_date":"2026-09-30", "accessed":"2026-11-02", "url":"https://example.org/preprints/paper"},
+    {"id":"webE", "type":"EB", "authors":["编辑组"], "title":"项目指南示例页", "platform":"示例网站", "published_date":"2026-10-05", "accessed":"2026-11-02", "url":"https://example.org/guides"},
+    {"id":"bookF", "type":"M", "authors":["赵示例"], "title":"学术写作示例书", "place":"北京", "publisher":"示例出版社", "year":"2024"},
+    {"id":"thesisG", "type":"D", "authors":["刘示例"], "title":"某示例主题硕士论文", "place":"长春", "institution":"示例大学", "year":"2023"},
+    {"id":"reportH", "type":"R", "authors":["工作组"], "title":"演示研究报告", "place":"上海", "publisher":"示例研究院", "year":"2026"},
+    {"id":"standardI", "type":"S", "authors":["某示例机构"], "title":"示例测试标准", "standard_number":"XX/T 100-2026", "year":"2026"}
+  ],
+  "blocks": [
+    {"type":"heading", "level":1, "text":"研究背景"},
+    {"type":"paragraph", "text":"这里引用一至三篇连续编号文献[[CITE:journalA;conferenceB;datasetC]]，以及预印本[[CITE:preprintD]]。"},
+    {"type":"paragraph", "text":"重复引用研究论文特定页面[[CITE:journalA@23-25]]；也有非连续引用[[CITE:journalA;webE]]。"},
+    {"type":"paragraph", "text":"图表交叉引用应保持可更新，参见[[FIG:figA]]和[[TABLE:tabA]]。"},
+    {"type":"figure", "id":"figA", "caption":"示例机制图", "placeholder":"测试图片占位"},
+    {"type":"table", "id":"tabA", "caption":"示例结果表", "headers":["编号","说明"], "rows":[["1","示例文本"],["2","示例文本"]]},
+    {"type":"heading", "level":1, "text":"结论"},
+    {"type":"paragraph", "text":"示例书籍与学位论文[[CITE:bookF;thesisG]]；报告与标准[[CITE:reportH;standardI]]。"}
+  ]
+}

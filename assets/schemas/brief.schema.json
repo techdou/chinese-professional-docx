@@ -1,0 +1,521 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Chinese professional DOCX brief",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "info": {
+      "type": "string"
+    },
+    "blocks": {
+      "type": "array",
+      "maxItems": 5000,
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "enum": [
+                  "paragraph",
+                  "note",
+                  "code",
+                  "reference"
+                ]
+              },
+              "text": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "text"
+            ]
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "const": "heading"
+              },
+              "level": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 3
+              },
+              "text": {
+                "type": "string"
+              },
+              "numbered": {
+                "type": "boolean",
+                "description": "特殊章节可为 false，避免自动编号"
+              }
+            },
+            "required": [
+              "type",
+              "level",
+              "text"
+            ]
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "enum": [
+                  "bullets",
+                  "numbered"
+                ]
+              },
+              "items": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "type",
+              "items"
+            ]
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "const": "table"
+              },
+              "caption": {
+                "type": "string"
+              },
+              "headers": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 20,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "rows": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_.-]{0,63}$"
+              },
+              "style": {
+                "enum": [
+                  "three-line",
+                  "grid",
+                  "none"
+                ]
+              },
+              "note": {
+                "type": "string"
+              },
+              "continuation": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "mode": {
+                    "enum": [
+                      "repeat-header",
+                      "explicit-chunks"
+                    ]
+                  },
+                  "rows_per_part": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "page_break_before": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            },
+            "required": [
+              "type",
+              "headers",
+              "rows"
+            ],
+            "description": "三线表默认。explicit-chunks 需要 id、caption、rows_per_part；每部分有真实表头，续表通过 REF 链接原序号。"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "const": "pagebreak"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "const": "toc"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "const": "figure"
+              },
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_.-]{0,63}$"
+              },
+              "caption": {
+                "type": "string",
+                "minLength": 1
+              },
+              "image_path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "placeholder": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "id",
+              "caption"
+            ],
+            "oneOf": [
+              {
+                "required": [
+                  "image_path"
+                ]
+              },
+              {
+                "required": [
+                  "placeholder"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "const": "equation"
+              },
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_.-]{0,63}$"
+              },
+              "expression": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "type",
+              "id",
+              "expression"
+            ]
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "enum": [
+                  "list-of-figures",
+                  "list-of-tables"
+                ]
+              }
+            },
+            "required": [
+              "type"
+            ]
+          }
+        ]
+      }
+    },
+    "document_type": {
+      "type": "string",
+      "enum": [
+        "general",
+        "formal-report",
+        "teaching",
+        "project-report",
+        "research-report",
+        "technical-report",
+        "thesis-natural",
+        "thesis-chapter",
+        "thesis-humanities"
+      ],
+      "description": "文档场景，决定自动标题编号范式；不是学校合规声明"
+    },
+    "numbering": {
+      "type": "string",
+      "enum": [
+        "auto",
+        "none",
+        "chinese-formal",
+        "academic-decimal",
+        "academic-chapter",
+        "humanities"
+      ],
+      "description": "Word 原生多级标题编号策略，auto 依场景选择"
+    },
+    "bibliography": {
+      "type": "array",
+      "maxItems": 2000,
+      "description": "已人工排版的旧 text 或结构化核心类型元数据。运行 audit-bibliography 检查缺失/不确定字段；不能凭通过校验声称与原始文献逐项一致。",
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_.-]{0,63}$"
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "id",
+              "text"
+            ]
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_.-]{0,63}$"
+              },
+              "type": {
+                "enum": [
+                  "M",
+                  "J",
+                  "N",
+                  "C",
+                  "D",
+                  "R",
+                  "S",
+                  "P",
+                  "EB",
+                  "A",
+                  "CM",
+                  "DS",
+                  "PP",
+                  "G",
+                  "CP",
+                  "DB",
+                  "Z"
+                ]
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1
+              },
+              "authors": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "language": {
+                "enum": [
+                  "zh",
+                  "en"
+                ]
+              },
+              "medium": {
+                "enum": [
+                  "OL",
+                  "CD",
+                  "DK",
+                  "MT"
+                ]
+              },
+              "subtitle": {
+                "type": "string",
+                "minLength": 1
+              },
+              "year": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "^(1|2)\\d{3}$"
+              },
+              "container": {
+                "type": "string",
+                "minLength": 1
+              },
+              "volume": {
+                "type": "string",
+                "minLength": 1
+              },
+              "issue": {
+                "type": "string",
+                "minLength": 1
+              },
+              "pages": {
+                "type": "string",
+                "minLength": 1
+              },
+              "publisher": {
+                "type": "string",
+                "minLength": 1
+              },
+              "place": {
+                "type": "string",
+                "minLength": 1
+              },
+              "edition": {
+                "type": "string",
+                "minLength": 1
+              },
+              "version": {
+                "type": "string",
+                "minLength": 1
+              },
+              "platform": {
+                "type": "string",
+                "minLength": 1
+              },
+              "published_date": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+              },
+              "accessed": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+              },
+              "url": {
+                "type": "string",
+                "minLength": 1
+              },
+              "doi": {
+                "type": "string",
+                "minLength": 1
+              },
+              "pid": {
+                "type": "string",
+                "minLength": 1
+              },
+              "conference": {
+                "type": "string",
+                "minLength": 1
+              },
+              "conference_year": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "^(1|2)\\d{3}$"
+              },
+              "institution": {
+                "type": "string",
+                "minLength": 1
+              },
+              "publisher_date": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+              },
+              "report_number": {
+                "type": "string",
+                "minLength": 1
+              },
+              "standard_number": {
+                "type": "string",
+                "minLength": 1
+              },
+              "conference_place": {
+                "type": "string",
+                "minLength": 1
+              },
+              "citation_author": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "id",
+              "type",
+              "title"
+            ],
+            "description": "仅 J/M/C/D/R/S/EB/DS/PP 的核心模板可以由工具直接著录；其他类型应给 text，避免猜测。"
+          }
+        ]
+      }
+    },
+    "citation_mode": {
+      "enum": [
+        "numeric-superscript",
+        "numeric-inline",
+        "author-year"
+      ],
+      "default": "numeric-superscript",
+      "description": "正文数字上标默认；author-year 需要 authors/year，采用 REF 到专用书签；页码请以 [[CITE:id@12-16]] 标注。"
+    },
+    "caption_numbering": {
+      "enum": [
+        "auto",
+        "global",
+        "chapter"
+      ],
+      "description": "auto 视编号范式设置；章号需在一级标题后生成"
+    },
+    "caption_separator": {
+      "enum": [
+        "-",
+        "."
+      ],
+      "description": "统一使用图1-1/表1-1或图1.1/表1.1"
+    },
+    "reference_standard": {
+      "enum": [
+        "gbt7714-2025",
+        "gbt7714-2015-compat",
+        "institution-custom"
+      ],
+      "default": "gbt7714-2025",
+      "description": "规范选择顺序：用户指定模板/期刊 > 机构 > 当前现行 GB/T；兼容制只使用已经人工校验的 text。"
+    }
+  },
+  "required": [
+    "title"
+  ]
+}

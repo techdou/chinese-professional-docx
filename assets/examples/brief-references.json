@@ -1,0 +1,200 @@
+{
+  "title": "中文学术文档：引用与续表排版演示",
+  "subtitle": "仅为格式验证，不代表真实论文或实验结论",
+  "document_type": "thesis-chapter",
+  "caption_numbering": "chapter",
+  "caption_separator": "-",
+  "citation_mode": "numeric-superscript",
+  "bibliography": [
+    {
+      "id": "sample2026",
+      "text": "示例作者. 示例研究论文[J]. 示例期刊, 2026.（仅供排版演示）"
+    },
+    {
+      "id": "sample2025",
+      "text": "示例作者. 示例技术报告[R]. 示例城市: 示例单位, 2025.（仅供排版演示）"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "toc"
+    },
+    {
+      "type": "list-of-figures"
+    },
+    {
+      "type": "list-of-tables"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "绪论"
+    },
+    {
+      "type": "paragraph",
+      "text": "此处展示上标顺序编码引用[[CITE:sample2026;sample2025]]，以及同一文献的重复引用[[CITE:sample2026]]。"
+    },
+    {
+      "type": "paragraph",
+      "text": "图表交叉引用如[[FIG:workflow]]与[[TABLE:sampleTable]]；公式引用见[[EQ:objective]]，图所在页码见[[PAGE:workflow]]页。"
+    },
+    {
+      "type": "figure",
+      "id": "workflow",
+      "caption": "图表引用处理机制",
+      "placeholder": "以真实矢量或高分辨率图片替换"
+    },
+    {
+      "type": "table",
+      "id": "sampleTable",
+      "caption": "长表续表排版验证",
+      "headers": [
+        "样本编号",
+        "方法",
+        "测试值（仅示例）"
+      ],
+      "rows": [
+        [
+          "01",
+          "示例模型",
+          "0.708"
+        ],
+        [
+          "02",
+          "示例模型",
+          "0.716"
+        ],
+        [
+          "03",
+          "示例模型",
+          "0.724"
+        ],
+        [
+          "04",
+          "示例模型",
+          "0.732"
+        ],
+        [
+          "05",
+          "示例模型",
+          "0.740"
+        ],
+        [
+          "06",
+          "示例模型",
+          "0.748"
+        ],
+        [
+          "07",
+          "示例模型",
+          "0.756"
+        ],
+        [
+          "08",
+          "示例模型",
+          "0.764"
+        ],
+        [
+          "09",
+          "示例模型",
+          "0.772"
+        ],
+        [
+          "10",
+          "示例模型",
+          "0.780"
+        ],
+        [
+          "11",
+          "示例模型",
+          "0.788"
+        ],
+        [
+          "12",
+          "示例模型",
+          "0.796"
+        ],
+        [
+          "13",
+          "示例模型",
+          "0.804"
+        ],
+        [
+          "14",
+          "示例模型",
+          "0.812"
+        ],
+        [
+          "15",
+          "示例模型",
+          "0.820"
+        ],
+        [
+          "16",
+          "示例模型",
+          "0.828"
+        ],
+        [
+          "17",
+          "示例模型",
+          "0.836"
+        ],
+        [
+          "18",
+          "示例模型",
+          "0.844"
+        ]
+      ],
+      "continuation": {
+        "mode": "explicit-chunks",
+        "rows_per_part": 10,
+        "page_break_before": true
+      },
+      "note": "注：所有数值仅为格式测试用合成数据。"
+    },
+    {
+      "type": "equation",
+      "id": "objective",
+      "expression": "L = L_cls + λ L_reg"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "讨论"
+    },
+    {
+      "type": "paragraph",
+      "text": "跨章节引用的旧图[[FIG:workflow]]不应改变目标；第二章的图表和公式则应重新从2-1编号。"
+    },
+    {
+      "type": "figure",
+      "id": "newFig",
+      "caption": "第二章图像示例",
+      "placeholder": "第二章图像"
+    },
+    {
+      "type": "table",
+      "id": "newTable",
+      "caption": "第二章表格示例",
+      "headers": [
+        "分类",
+        "说明"
+      ],
+      "rows": [
+        [
+          "A",
+          "仅为演示"
+        ]
+      ]
+    },
+    {
+      "type": "equation",
+      "id": "formula2",
+      "expression": "p = q + r"
+    },
+    {
+      "type": "paragraph",
+      "text": "第二章引用：[[FIG:newFig]]、[[TABLE:newTable]]和[[EQ:formula2]]。"
+    }
+  ]
+}

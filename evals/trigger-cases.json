@@ -1,0 +1,322 @@
+{
+  "skill_name": "chinese-professional-docx",
+  "schema_version": "2.0",
+  "status": "fixtures-only-not-model-evaluated",
+  "cases": [
+    {
+      "id": "T01",
+      "prompt": "给我做一份中文Word课程讲义，正文每段缩进两个字。",
+      "should_trigger": true,
+      "expected_route": "create",
+      "reason": "明确中文Word交付"
+    },
+    {
+      "id": "T02",
+      "prompt": "用我们的通用母版排一下参赛说明书，交docx。",
+      "should_trigger": true,
+      "expected_route": "format",
+      "reason": "通用母版与排版"
+    },
+    {
+      "id": "T03",
+      "prompt": "这份DOCX粘贴后正文首行不缩进了，只修这个问题。",
+      "should_trigger": true,
+      "expected_route": "repair-indent",
+      "reason": "限定缩进修复"
+    },
+    {
+      "id": "T04",
+      "prompt": "把阶段总结做成可复用的DOTX模板。",
+      "should_trigger": true,
+      "expected_route": "template",
+      "reason": "母版制作"
+    },
+    {
+      "id": "T05",
+      "prompt": "统一Word的宋体和Times New Roman混排，再检查表格分页。",
+      "should_trigger": true,
+      "expected_route": "format",
+      "reason": "中英文样式及视觉检查"
+    },
+    {
+      "id": "T06",
+      "prompt": "Create a Chinese professional Word report with two-character first-line indents.",
+      "should_trigger": true,
+      "expected_route": "create",
+      "reason": "英文指令，中文文档"
+    },
+    {
+      "id": "T07",
+      "prompt": "先看看这份文档格式有无问题，只出检查意见，不修改文件。",
+      "should_trigger": true,
+      "expected_route": "audit",
+      "reason": "只读排版审计",
+      "attachments": [
+        "课程讲义.docx"
+      ]
+    },
+    {
+      "id": "T08",
+      "prompt": "这个正文每段空两个字，表格和代码别动。",
+      "should_trigger": true,
+      "expected_route": "repair-indent",
+      "reason": "上下文确定Word，空字不是空格",
+      "context": "前文已提供项目报告.docx并要求只调整排版。"
+    },
+    {
+      "id": "T09",
+      "prompt": "按官方赛事Word表格填入这些材料，不改赛方字体和页边距。",
+      "should_trigger": true,
+      "expected_route": "official-template",
+      "reason": "指定模板优先",
+      "attachments": [
+        "赛事指定表格.docx"
+      ]
+    },
+    {
+      "id": "T10",
+      "prompt": "这份高校硕士论文只修正文首行2字符，其余按附件官方模板保留。",
+      "should_trigger": true,
+      "expected_route": "official-template",
+      "reason": "只对明确授权项目操作",
+      "attachments": [
+        "学位论文原稿.docx",
+        "校方格式规范.pdf"
+      ]
+    },
+    {
+      "id": "T11",
+      "prompt": "帮我做高校学术风格的通用讲义，不要变成毕业论文。交Word。",
+      "should_trigger": true,
+      "expected_route": "create",
+      "reason": "通用学术风格与官方论文区分"
+    },
+    {
+      "id": "T12",
+      "prompt": "报告排成Word，另做一份PPT用于汇报。",
+      "should_trigger": true,
+      "expected_route": "format",
+      "reason": "只承接Word子任务",
+      "attachments": [
+        "报告.docx"
+      ]
+    },
+    {
+      "id": "T13",
+      "prompt": "把这份中英混排说明整理成可编辑Word版。",
+      "should_trigger": true,
+      "expected_route": "format",
+      "reason": "混排内容"
+    },
+    {
+      "id": "T14",
+      "prompt": "检查Word里所有正文是否确实缩进了两个字符，不要全选乱改。",
+      "should_trigger": true,
+      "expected_route": "audit",
+      "reason": "原生段落属性审计"
+    },
+    {
+      "id": "T15",
+      "prompt": "从这个DOCX做一个真正的DOTX母版，不是只改扩展名。",
+      "should_trigger": true,
+      "expected_route": "template",
+      "reason": "模板转换",
+      "attachments": [
+        "母稿.docx"
+      ]
+    },
+    {
+      "id": "T16",
+      "prompt": "请把表格与代码保留，给培训资料统一排版，输出.docx。",
+      "should_trigger": true,
+      "expected_route": "format",
+      "reason": "全文排版，特殊对象保留"
+    },
+    {
+      "id": "T17",
+      "prompt": "把刚才的讲义导出为能继续编辑的版本。",
+      "should_trigger": true,
+      "expected_route": "create",
+      "reason": "前文明确Word交付",
+      "context": "前文约定使用中文通用Word母版，待导出讲义正文已完整给出。"
+    },
+    {
+      "id": "T18",
+      "prompt": "The attached Chinese DOCX has broken paragraph indentation; fix formatting only.",
+      "should_trigger": true,
+      "expected_route": "repair-indent",
+      "reason": "英语修复指令",
+      "attachments": [
+        "handout.docx"
+      ]
+    },
+    {
+      "id": "T19",
+      "prompt": "请使用我的指定模板重排申报书。",
+      "should_trigger": true,
+      "expected_route": "official-template",
+      "reason": "附件已确定Word格式",
+      "attachments": [
+        "申报书.docx",
+        "指定模板.dotx"
+      ]
+    },
+    {
+      "id": "T20",
+      "prompt": "优化这个通用Word母版，让以后每个新正文段落自动首行缩进2字符。",
+      "should_trigger": true,
+      "expected_route": "template",
+      "reason": "母版样式继承修复",
+      "attachments": [
+        "通用母版.dotx"
+      ]
+    },
+    {
+      "id": "T21",
+      "prompt": "中文论文一般使用什么字体？直接告诉我，不生成文件。",
+      "should_trigger": false,
+      "expected_route": "none",
+      "reason": "字体问答不是制文档"
+    },
+    {
+      "id": "T22",
+      "prompt": "把这段中文措辞改得流畅一点，只返回文字。",
+      "should_trigger": false,
+      "expected_route": "none",
+      "reason": "纯文字润色"
+    },
+    {
+      "id": "T23",
+      "prompt": "生成参赛路演PPT，不用Word。",
+      "should_trigger": false,
+      "expected_route": "none",
+      "reason": "仅PPT"
+    },
+    {
+      "id": "T24",
+      "prompt": "帮我设计Excel竞赛评分表。",
+      "should_trigger": false,
+      "expected_route": "none",
+      "reason": "仅电子表格"
+    },
+    {
+      "id": "T25",
+      "prompt": "寻找高校最新硕士毕业论文官方模板，先不要制作文档。",
+      "should_trigger": false,
+      "expected_route": "none",
+      "reason": "官方规范检索"
+    },
+    {
+      "id": "T26",
+      "prompt": "只解释Python代码，不用制作讲义或报告。",
+      "should_trigger": false,
+      "expected_route": "none",
+      "reason": "代码解释"
+    },
+    {
+      "id": "T27",
+      "prompt": "Word里怎么把首行缩进设成2字符？教我操作即可。",
+      "should_trigger": false,
+      "expected_route": "none",
+      "reason": "Word操作知识而非文件任务"
+    },
+    {
+      "id": "T28",
+      "prompt": "这份课程讲义只给我Markdown提纲，不要文件。",
+      "should_trigger": false,
+      "expected_route": "none",
+      "reason": "讲义关键词的硬负例"
+    },
+    {
+      "id": "T29",
+      "prompt": "帮我审查这份Word的研究论证是否成立，只给内容意见。",
+      "should_trigger": false,
+      "expected_route": "none",
+      "reason": "有Word附件但无排版请求",
+      "attachments": [
+        "科研报告.docx"
+      ]
+    },
+    {
+      "id": "T30",
+      "prompt": "仅把这份Word导出PDF，不改文字和版式。",
+      "should_trigger": false,
+      "expected_route": "none",
+      "reason": "单纯格式导出"
+    },
+    {
+      "id": "T31",
+      "prompt": "请用LaTeX做一份中文讲义，只给.tex和PDF。",
+      "should_trigger": false,
+      "expected_route": "none",
+      "reason": "排除Word的中文制文档"
+    },
+    {
+      "id": "T32",
+      "prompt": "做一份纯英文简历Word模板，不含中文。",
+      "should_trigger": false,
+      "expected_route": "none",
+      "reason": "通用英文Word不抢专项简历能力"
+    },
+    {
+      "id": "T33",
+      "prompt": "把这份中文Word翻译成英文，在聊天里给译文就行。",
+      "should_trigger": false,
+      "expected_route": "none",
+      "reason": "纯译文，不做中文Word排版"
+    },
+    {
+      "id": "T34",
+      "prompt": "帮我写一个Python程序分析docx结构，不生成或改动Word文件。",
+      "should_trigger": false,
+      "expected_route": "none",
+      "reason": "代码研发而非文档制作"
+    },
+    {
+      "id": "T35",
+      "prompt": "搜索宋体和Times New Roman的授权条款。",
+      "should_trigger": false,
+      "expected_route": "none",
+      "reason": "字体关键词，但目标为检索"
+    },
+    {
+      "id": "T36",
+      "prompt": "比较两份报告的研究结论，用文字回答。",
+      "should_trigger": false,
+      "expected_route": "none",
+      "reason": "报告关键词的硬负例",
+      "attachments": [
+        "报告A.docx",
+        "报告B.docx"
+      ]
+    },
+    {
+      "id": "T37",
+      "prompt": "给我做个模板。",
+      "should_trigger": false,
+      "expected_route": "clarify-format",
+      "reason": "无内容或格式上下文，先澄清"
+    },
+    {
+      "id": "T38",
+      "prompt": "看看这个skill的description是否好匹配，别执行文档流程。",
+      "should_trigger": false,
+      "expected_route": "none",
+      "reason": "元审查不启动制文档"
+    },
+    {
+      "id": "T39",
+      "prompt": "仅把Word原件上传归档到私有仓库，不做排版。",
+      "should_trigger": false,
+      "expected_route": "none",
+      "reason": "存储部署任务不归文档排版"
+    },
+    {
+      "id": "T40",
+      "prompt": "只解释DOCX和DOTX有什么区别，不转换文件。",
+      "should_trigger": false,
+      "expected_route": "none",
+      "reason": "格式知识问答"
+    }
+  ]
+}

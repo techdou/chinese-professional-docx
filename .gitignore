@@ -1,0 +1,40 @@
+# ===== 私密信息（永不入库）=====
+.env
+.env.*
+*.pem
+*.key
+secrets/
+private/
+credentials/
+
+# ===== 本机字体（Windows 附带字体，禁止再分发）=====
+assets/fonts/
+*.ttf
+*.otf
+*.ttc
+*.woff
+*.woff2
+
+# ===== 运行环境与生成产物 =====
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+qa/
+outputs/
+dist/
+*.log
+~$*
+Thumbs.db
+.DS_Store
+
+# ===== 宿主/开发工具配置目录（不上传）=====
+.idea/
+.vscode/
+.claude-plugin/
+agents/
+
+# ===== 内部开发状态文档（不纳入版本控制）=====
+docs/development-plan-*.md
+docs/iteration-plan.md
